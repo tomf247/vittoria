@@ -1,3 +1,4 @@
+import os
 from django.shortcuts import render,redirect
 from django.conf import settings
 from .forms import CheckoutForm
@@ -11,8 +12,8 @@ from django.contrib import messages
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
 def checkout(request):
-    stripe_public_key = settings.STRIPE_PUBLIC_KEY
-    stripe_secret_key = settings.STRIPE_SECRET_KEY
+    stripe_public_key = os.environ.get('STRIPE_PUBLIC_KEY')
+    stripe_secret_key = os.environ.get('STRIPE_SECRET_KEY')
     if request.method =='POST':
         cart = request.session.get('cart',{})
         form = CheckoutForm(request.POST)
