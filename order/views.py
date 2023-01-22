@@ -9,7 +9,6 @@ import stripe
 from django.core.mail import send_mail
 from django.contrib import messages
 # Create your views here.
-stripe.api_key = settings.STRIPE_SECRET_KEY
 
 def checkout(request):
     stripe_public_key = os.environ.get('STRIPE_PUBLIC_KEY')
