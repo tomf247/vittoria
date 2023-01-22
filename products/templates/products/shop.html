@@ -1,0 +1,171 @@
+{% extends 'home/base.html' %}
+{% load static %}
+{% block content %}
+
+    <main>
+
+        <!-- BreadCrumb Start-->
+        <section class="breadcrumb-area mt-4" style="padding: 0 !important;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Shop</li>
+                            </ol>
+                            {% if query %}
+                            <div style="margin-bottom:1.5rem;">
+                            <h1 style="text-align: center;"> Search Result For "{{query}}"</h1>
+                            {% endif %}
+                        </div>
+                        </nav>
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- BreadCrumb Start-->
+
+        <!-- Catagory Search Start -->
+        <section class="search">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="search-wrapper">
+                        <form method="get" class="search-wrapper-box">
+                            <input type="text" name="query" placeholder="Search Heare." required>
+                            <button class="btn bg-primary" type="submit">SEARCH</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Catagory Search End -->
+
+        <!-- Catagory item start -->
+        <section class="categoryitem">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="categoryitem-wrapper">
+                        <div class="categoryitem-wrapper-itembox">
+                            <h6>Category</h6>
+                            <select onchange="location = this.value;" name="category">
+                                <option selected value="?category={{category}}">{{category}}</option>
+                                {% for i in categories %}
+                                
+                                <option value="?category={{i.name}}">{{i.name}}</option>
+                               {% endfor %}
+                            </select>
+                        </div>
+                        <div class="categoryitem-wrapper-itembox">
+                            <h6>Gender</h6>
+                            <select onchange="location = this.value;" name="gender">
+                                <option {% if gender == "M" %} selected {% endif %} value="?gender=M" data-display="Male">Male</option>
+                                <option {% if gender == "F" %} selected {% endif %} value="?gender=F" data-display="Female">Female</option>
+                                
+                            </select>
+                        </div>
+                     
+                        <div class="categoryitem-wrapper-itembox">
+                            <h6>Sort By</h6>
+                            <select onchange="location = this.value;" name="sort_by">
+                                <option {% if sort_by == "name-ascending" %} selected {% endif %} value="?sort_by=name-ascending" data-display="Name (A-Z)">Name (A-Z)</option>
+                                <option {% if sort_by == "name-descending" %} selected {% endif %} value="?sort_by=name-descending" data-display="Name (Z-A)">Name (Z-A)</option>
+                                <option {% if sort_by == "price-high-to-low" %} selected {% endif %} value="?sort_by=price-high-to-low" data-display="Price (High To Low)">Price (High To Low)</option>
+                                <option {% if sort_by == "price-low-to-high" %} selected {% endif %} value="?sort_by=price-low-to-high" data-display="Price (Low To High)">Price (Low To High)</option>
+
+                                
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Catagory item End -->
+
+        <!-- Populer Product Strat -->
+        <section class="populerproduct bg-white p-0 shop-product">
+            <div class="container">
+             
+                
+                <br>
+                <div class="row">
+                    {% for i in products %}
+                    <div class="col-md-4 col-sm-6">
+                        <div class="product-item">
+                            <div class="product-item-image">
+                                <a href="{% url 'products:product-detail' i.id %}"><img src="{{i.image_url}}" alt="{{i.name}}"
+                                        class="img-fluid"></a>
+                                <div class="cart-icon">
+                                    {% if user.is_superuser %}
+                                <a href="{% url 'home:edit-product' i.id %}"><i class="far fa-edit"></i></a>
+                                    {% endif %}
+                                    <a href="{% url 'cart:add-to-wishlist' i.id %}"><i class="far fa-heart"></i></a>
+                                    <a href="{% url 'cart:add-to-cart' i.id %}">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16.75" height="16.75"
+                                            viewBox="0 0 16.75 16.75">
+                                            <g id="Your_Bag" data-name="Your Bag" transform="translate(0.75)">
+                                                <g id="Icon" transform="translate(0 1)">
+                                                    <ellipse id="Ellipse_2" data-name="Ellipse 2" cx="0.682" cy="0.714"
+                                                        rx="0.682" ry="0.714" transform="translate(4.773 13.571)"
+                                                        fill="none" stroke="#1a2224" stroke-linecap="round"
+                                                        stroke-linejoin="round" stroke-width="1.5" />
+                                                    <ellipse id="Ellipse_3" data-name="Ellipse 3" cx="0.682" cy="0.714"
+                                                        rx="0.682" ry="0.714" transform="translate(12.273 13.571)"
+                                                        fill="none" stroke="#1a2224" stroke-linecap="round"
+                                                        stroke-linejoin="round" stroke-width="1.5" />
+                                                    <path id="Path_3" data-name="Path 3"
+                                                        d="M1,1H3.727l1.827,9.564a1.38,1.38,0,0,0,1.364,1.15h6.627a1.38,1.38,0,0,0,1.364-1.15L16,4.571H4.409"
+                                                        transform="translate(-1 -1)" fill="none" stroke="#1a2224"
+                                                        stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="1.5" />
+                                                </g>
+                                            </g>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                            <a href="{% url 'products:product-detail' i.id %}">
+                            <div class="product-item-info">
+                                {{i.name}}
+                                <span>${{i.price}}</span> 
+                            </div>
+                            </a>
+                        </div>
+                    </div>
+                    {% endfor %}
+            </div>
+        </section>
+        <!-- Populer Product End -->
+
+        <!-- Pagination Start -->
+        <section class="pagination">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="pagination-group">
+                        {% if products.has_previous %}
+                        <a href="?page={{products.previous_page_number}}" class="p_prev"><svg xmlns="http://www.w3.org/2000/svg" width="9.414" height="16.828" viewBox="0 0 9.414 16.828">
+                            <path id="Icon_feather-chevron-left" data-name="Icon feather-chevron-left" d="M20.5,23l-7-7,7-7" transform="translate(-12.5 -7.586)" fill="none" stroke="#1a2224" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                        </svg></a>
+                        {% endif %}
+                        {% for i in nums %}
+                        <a href="?page={{forloop.counter}}" class="cdp_i active">{{forloop.counter}}</a>
+                        {% endfor %}
+                        {% if products.has_next %}
+                        <a href="?page={{products.next_page_number}}" class="p_next">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="9.414" height="16.829" viewBox="0 0 9.414 16.829">
+                              <g id="Arrow" transform="translate(1.414 15.414) rotate(-90)">
+                                <path id="Arrow-2" data-name="Arrow" d="M1474.286,26.4l7,7,7-7" transform="translate(-1474.286 -26.4)" fill="none" stroke="#1a2224" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                              </g>
+                            </svg>
+                            </a>
+                            {% endif %}
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Pagination End -->
+
+    </main>
+
+  {% endblock %}

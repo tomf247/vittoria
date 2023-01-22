@@ -1,0 +1,113 @@
+{% extends 'home/base.html' %}
+{% load static %}
+{% load cart_count %}
+{% block content %}
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<div class="container">
+    {% if cart %}
+
+    <div class="rows">
+        <div class="cart-items">
+            <div class="header">
+                <div class="image">
+                    Image
+                </div>
+                <div class="name">
+                    Name
+                </div>
+                <div class="price">
+                    Prices
+                </div>
+                <div class="info">
+                    Info
+                </div>
+                <div class="rating">
+                    Quantity
+                </div>
+            </div>
+            <div class="body">
+                {% for item in cart_items %}
+                <div class="item">
+                    <div class="image">
+                        <img src="{{item.product.image_url}}">
+                    </div>
+                    <div class="name">
+                        <div class="name-text">
+                            <p> {{item.product.name}}</p>
+                            
+                        </div>
+                        <div class="button">
+                            <a class="cart-btn" href="{% url 'cart:remove-from-cart' item.product.id %}">
+                                <i class="material-icons" style="font-size:30px;">delete</i>
+                            </a>
+                            <a class="cart-btn" href="{% url 'cart:add-to-wishlist' item.product.id %}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="18"
+                                    viewBox="0 0 20 18">
+                                    <g id="Heart" transform="translate(1 1)">
+                                        <path id="Heart-2" data-name="Heart"
+                                            d="M18.161,4.413a4.674,4.674,0,0,0-6.7,0l-.913.93-.913-.93a4.675,4.675,0,0,0-6.7,0,4.893,4.893,0,0,0,0,6.828l.913.93L10.548,19l6.7-6.828.913-.93a4.892,4.892,0,0,0,0-6.828Z"
+                                            transform="translate(-1.549 -2.998)" fill="#fff" stroke="#1a2224"
+                                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                                    </g>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="price">
+                        <span>${{item.product.price}}</span> 
+                    </div>
+                    <div class="info">
+                        <span>{{item.product.category.name}}</span> 
+                        </div>
+                        <div class="rating">
+                            <div class="product-pricelist-selector-quantity">
+                               <form method="post" action="{% url 'cart:update-cart' item.product.id %}">
+                                {% csrf_token %}
+                                    <input style="font-size: 1rem; padding: 6px;" type="number" name="quantity" value="{{item.quantity}}" min="1" max="15">
+                                  <button type="submit" class="btn bg-primary" style="font-size: 15px; padding: 3px;">Update </button>
+                               </form>
+                                </div>
+                            </div>
+                        </div>
+
+                {% endfor %}
+
+
+                    </div>
+                </div>
+            </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card-price">
+                <h6>Order Summary</h6>
+                <div class="card-price-list d-flex justify-content-between align-items-center">
+                    <div class="item">
+                        <p>{{product_count}} items</p>
+                    </div>
+                    <div class="price">
+                    </div>
+                </div>
+                <div class="card-price-subtotal d-flex justify-content-between align-items-center">
+                    <div class="total-text">
+                        <p>Total Price</p>
+                    </div>
+                    <div class="total-price">
+                        <p>${{total}}</p>
+                    </div>
+
+                </div>
+                <br>
+                <form action="#">
+                    <a href="/checkout" class="btn bg-primary" type="submit" style="width: 100%;">Checkout Now</a>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <br><br>
+    <h1 style="text-align: center;">Your Cart is Empty.</h1> <br><br>
+{% endif %}
+</div>
+{% endblock %}

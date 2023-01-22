@@ -1,0 +1,43 @@
+{% extends 'home/base.html' %}
+{% load static %}
+{% block content %}
+
+<main>
+    <!-- Account-Login -->
+    <section class="account-sign">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-12" style="margin: auto;">
+                    <div class="account-sign-in">
+                        <h5 class="text-center">Sign in</h5>
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="form__div">
+                                <input name="username" class="form__input" placeholder=" " required>
+                                <label for="" class="form__label">Username</label>
+                            </div>
+                            <div class="form__div mb-0">
+                                <input type="password" name="password" class="form__input" placeholder=" " required>
+                                <label for="" class="form__label">Password</label>
+                            </div>
+                            <div class="password-info d-flex align-items-center justify-content-between flex-wrap">
+                                <div class="password-info-left">
+                                    
+                                    <a href="{% url 'home:signup'%}"> Create New Account</a>
+                                </div>
+                                <div class="password-info-right">
+                                    <a href="{% url 'forgotpassword' %}">Forgot Password?</a>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn bg-primary">Sign in</button>
+                        </form>
+                      
+                    </div>
+                </div>
+              
+            </div>
+        </div>
+    </section>
+</main>
+
+{% endblock %}

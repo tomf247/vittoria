@@ -1,0 +1,70 @@
+{% extends 'home/base.html' %}
+{% load static %}
+{% load cart_count %}
+{% block content %}
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+<div class="container">
+{% if wishlist %}
+
+    <div class="rows">
+        <div class="cart-items">
+            <div class="header">
+                <div class="image">
+                    Image
+                </div>
+                <div class="name">
+                    Name
+                </div>
+                <div class="price">
+                    Prices
+                </div>
+                <div class="info">
+                    Info
+                </div>
+                <div class="rating">
+                    Action
+                </div>
+            </div>
+            <div class="body">
+                {% for i in wishlist %}
+                <div class="item">
+                    <div class="image">
+                        <img src="{{i.product.image_url}}">
+                    </div>
+                    <div class="name">
+                        <div class="name-text">
+                            <p> {{i.product.name}}</p>
+                        </div>
+             
+                    </div>
+                    <div class="price">
+                        <span>${{i.product.price}}</span> 
+                    </div>
+                    <div class="info">
+                        <span>${{i.product.category.name}}</span> 
+                        </div>
+                        <div class="rating">
+                            <a class="cart-btn" href="{% url 'cart:remove-from-wishlist' i.product.id %}">
+                                <i class="material-icons" style="font-size:30px;">delete</i>
+                            </a>
+                            <a class="cart-btn" href="{% url 'cart:add-to-cart' i.product.id %}">
+                                <i class="material-icons" style="font-size:30px;">shopping_cart</i>
+
+                            </a>
+                            </div>
+                        </div>
+                {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+
+            {% else %}
+            <br><br>
+            <h1 style="text-align: center;">Your Wishlist is Empty.</h1> <br><br>
+            {% endif %}
+    </div>
+{% endblock %}
