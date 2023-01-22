@@ -80,3 +80,21 @@ def delete_product(request,product_id):
 
 def error_404(request, exception):
     return render(request, '404.html')
+
+@user_passes_test(lambda u: u.is_superuser,login_url='adminlogin')
+def add_product(request):
+    form= AddProductForm()
+    if request.method == "POST":
+        form = AddProductForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request,"New Product has been added successfully")
+            return redirect("products:shop")
+        else:
+            messages.error(request,"Please fill the form appropriately",form.errors)
+            return redirect("home:add-product")
+    
+    context = {
+        'form':form
+    }
+    return render(request,'home/add-product.html',context)

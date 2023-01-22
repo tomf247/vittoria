@@ -19,3 +19,9 @@ class NewsletterForm(forms.ModelForm):
     class Meta:
         model = models.Newsletter
         fields=['emails']
+        
+
+class AddProductForm(forms.ModelForm):
+	class Meta:
+		model = Product
+		fields = "_all_"
