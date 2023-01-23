@@ -87,6 +87,21 @@ A chat page, with a link to the store page is provided.
 If an Administrator logs in, a new category called 'Add Product' appears in the top navigation bar.
 Additionally, an edit symbol is displayed over each existing item image, to allow the Admin, to edit or delete an item.
 
+## Business Model
+#
+The objective of the store is to generate sales in the young adult market, by featuring products that are appealing to them, moderately priced, and delivering them in a timely fashion.
+
+Social media such as Facebook, Twitter and Instgram are used to spread brand awareness.
+
+Specials and promos are prominently featured.
+
+A mailing list is maintaintained, kept relevant and regularly sent. Comments and feedback are actively sought.
+
+Print media is used occasionaly in varying markets.
+
+Goodie bags, promo items (stash) are given out at social events, such as night clubs, shopping malls etc.
+
+Frequent meetings with suppliers and logistics firms to avail of new markets and opportunities.
 ## Facebook Page
 #
 [The Facebook page is here ](https://facebook.com/tf-vittoria)
