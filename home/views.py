@@ -5,7 +5,7 @@ from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages #import messages
-from .forms import SignupForm, EditProductForm
+from .forms import SignupForm, EditProductForm, AddProductForm
 from django.contrib.auth.decorators import user_passes_test
 def home(request):
     products = Product.objects.all()
