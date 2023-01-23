@@ -103,7 +103,10 @@
                                    
                                     {% endfor %}
                                 </ul>
-                            </li>
+                                {% if user.is_superuser %}
+                                    <li><a href="{% url 'home:add-product'%}">Add Product</a></li>
+                                {% endif %}
+                            </li>    
                            
                         </ul>
                         <div class="search-bar">
@@ -220,10 +223,13 @@
                                 </svg>
                             </a>
                             <ul class="sub-menu">
+                                {% if user.is_superuser %}
+                                    <li><a href="{% url 'home:add-product'%}">Add Product</a></li>
+                                {% endif %}
+
                                 {% for i in category_dropdown %}
-                                    <li><a href="/shop/?category={{i.name}}">{{i.name}}</a></li>
-                                   
-                                    {% endfor %}
+                                    <li><a href="/shop/?category={{i.name}}">{{i.name}}</a></li>                                  
+                                {% endfor %}
                             </ul>
                         </li>
                     </div>
