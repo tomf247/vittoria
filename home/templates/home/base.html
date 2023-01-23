@@ -11,6 +11,7 @@
     <meta name="description" property="og:description" content="Clothing and House Furniture for the discerning individual">
     <meta name="keywords" content="men, women, clothing, fashion, household, furniture, value, quality">
     <link rel="stylesheet" href="{% static 'css/main.css'%}">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/images-static/Logo.png' %}">
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -103,15 +104,13 @@
                                     {% endfor %}
                                 </ul>
                             </li>
-                            {% if user.is_superuser %}
-                                <li><a href="{% url 'home:add-product'%}">Add Product</a></li>
-                            {% endif %}
+                           
                         </ul>
                         <div class="search-bar">
                             <form method="get" action = "{% url 'products:shop' %}">
                             <input type="text" name="query" placeholder="Search for product..." required>
                             <button type="submit">
-                            <div class="icon">
+                            <div class="icon" style="right:5px !important;top:30% !important">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20.414" height="20.414"
                                     viewBox="0 0 20.414 20.414">
                                     <g id="Search_Icon" data-name="Search Icon" transform="translate(1 1)">
@@ -352,7 +351,7 @@
                         </p>
                     </div>
                 </div>
-                <!-- <div class="col-lg-2 offset-lg-2 col-md-4 col-sm-6 col-12">
+                <div class="col-lg-2 offset-lg-2 col-md-4 col-sm-6 col-12">
                     <div class="main-footer-quicklinks">
                         <h6>Company</h6>
                         <ul class="quicklink">
@@ -362,8 +361,8 @@
                             <li><a href="#">Terms of Service</a></li>
                         </ul>
                     </div>
-                </div> -->
-                <!-- <div class="col-lg-2 col-md-4 col-sm-6 col-12">
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6 col-12">
                     <div class="main-footer-quicklinks">
                         <h6>Quick links</h6>
                         <ul class="quicklink">
@@ -373,8 +372,8 @@
                             <li><a href="#">Women</a></li>
                         </ul>
                     </div>
-                </div> -->
-                <!-- <div class="col-lg-2 col-md-4 col-sm-6 col-12">
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6 col-12">
                     <div class="main-footer-quicklinks">
                         <h6>Account</h6>
                         <ul class="quicklink">
@@ -385,7 +384,7 @@
                         </ul>
                     </div>
                 </div>
-            </div> -->
+            </div>
             <div class="row">
                 <div class="col-lg-12">
                     <div class="copyright d-flex justify-content-between align-items-center">
@@ -393,7 +392,7 @@
                             <p>&copy; 2023. Design and Developed by <a href="#">Tom</a></p>
                         </div>
                         <div class="copyright-links order-1 order-lg-2">
-                            <a href="#" class="ml-0"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.facebook.com/tfvittoria/" class="ml-0"><i class="fab fa-facebook-f"></i></a>
                             <a href="#"><i class="fab fa-twitter"></i></a>
                             <a href="#"><i class="fab fa-youtube"></i></a>
                             <a href="#"><i class="fab fa-instagram"></i></a>
