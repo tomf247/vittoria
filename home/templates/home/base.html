@@ -103,7 +103,9 @@
                                     {% endfor %}
                                 </ul>
                             </li>
-                           
+                            {% if user.is_superuser %}
+                                <li><a href="{% url 'home:add-product'%}">Add Product</a></li>
+                            {% endif %}
                         </ul>
                         <div class="search-bar">
                             <form method="get" action = "{% url 'products:shop' %}">
