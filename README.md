@@ -119,6 +119,60 @@ Frequent meetings with suppliers and logistics firms to avail of new markets and
 
 - Github, Gitpod, VS Code, Django
 
+#
+## Deployment
+#
+The project was deployed to Heroku, and in order to remain within the Free Tier,  the Postgres Database was hosted at Elephant SQL. Additionally, static and media files were hosted on Amazon Cloud. This combination allows for a free website, provided usage rates are not exceeded.
+
+1. Create an [AWS S3 Bucket](https://aws.amazon.com/s3/) (For media)
+2. Create an account at [Heroku](https://heroku.com) (For the Django App)
+3. Create an account at [ElephantSQL](https://elephantsql.com) (Select "Tiny Turtle" for PostgreSQL tier).
+4. Create an account at [Stripe](https://stripe.com) (Obtain Developer Keys)
+5. When these elements are added, you will need to point the app to the correct values. This is done by setting the Config Variables (Reveal Config Vars) in Heroku:
+
+| **Key** | **Value** |
+--- | ---
+ AWS_ACCESS_KEY_ID | your AWS bucket ID
+ AWS_SECRET_ACCESS_KEY | your AWS secret key
+ DATABASE_URL | your ElephantSQL Postgres database url
+ EMAIL_HOST_PASS | your password to use your gmail account for emails
+ EMAIL_HOST_USER | your email address
+ SECRET_KEY | secret key used for your Django project
+ STRIPE_PUBLIC_KEY | obtained through your Stripe account
+ STRIPE_SECRET_KEY | obtained through your Stripe account
+ STRIPE_WH_SECRET | obtained through your Stripe account
+ USE_AWS | True
+
+6. In you Git root folder, create a requirements.txt file with the following command:
+```
+pip3 freeze --local > requirements.txt
+```
+7. Create a Procfile as follows:
+```
+echo web: gunicorn vittoria.wsgi:application > Procfile
+```
+8. The Postgres database is initialised and sync'd with these commands:
+```
+python3 manage.py makemigrations
+python3 manage.py migrate
+```
+9. Create a superuser.
+```
+python3 manage.py createsuperuser
+```
+10. Log in to Heroku from the terminal using this command and enter your details when prompt:
+```
+heroku login -i
+```
+11. Once logged in, link your Heroku app created above as the remote repository with this command:
+```
+heroku git:remote -a <your app name here>
+```
+12. Complete the deployment by pushing the projekt to Heroku:
+```
+git push heroku main
+``` 
+#
 ## Testing
 #
 
