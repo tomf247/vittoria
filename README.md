@@ -9,6 +9,14 @@ For the store owner, a means is provided to edit and maintain the store catalog.
 
 [Here is a link to the application](https://tf-vittoria.herokuapp.com/)
 
+# Planning
+
+## Initial Wireframe
+
+![Wireframe](/docs/vittoria-wireframe.png "Wireframe")
+I used [app.diagrams.net](https://app.diagrams.net) for the initial mockup. The sketch can be re-used or modified [here](/cocs/vittoria_app.diagrams.drawio)
+
+
 ## Features
 #
 
