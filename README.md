@@ -321,7 +321,7 @@ class NewsletterFormTest(TestCase):
 
 - The site was run through [The W3C HTML Validation Service](https://validator.w3.org/nu/?doc=https%3A%2F%2Ftf-vittoria.herokuapp.com%2F) 
 
-- HTML errors have been noted and investigated. Although not desirable they have been found to have no functional impact in the website, as curently implemented. Nonetheless, an issue has been generated and will be addressed in the next fix cycle.
+- HTML errors have been noted and investigated. Although not desirable they have been found to have no functional impact in the website, as curently implemented. Nonetheless, a [Github Issue](https://github.com/tomf247/vittoria/issues/8) has been generated and will be addressed in the next fix cycle.
 
 ### Linting
 
