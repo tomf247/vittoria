@@ -182,13 +182,101 @@ git push heroku main
 ``` 
 #
 ## Testing
-#
+### General
 
 - Tested for responsiveness on desktop and mobile platforms.
 
 - Automated Python tests in the application.
 
 - Multiple purchases made during testing, to check input validation, arithmetic calculations, and credit card processing. No errors were found.
+
+### Specific
+
+- The Home folder contains a tests.py containing the following test cases. They complete without error.
+
+```
+class RobotsTest(TestCase):
+    def test_get(self):
+        response = self.client.get("/robots.txt")
+
+        self.assertEqual(response.status_code, HTTPStatus.OK)
+        self.assertEqual(response["content-type"], "text/plain")
+        lines = response.content.decode().splitlines()
+        self.assertEqual(lines[0], "User-Agent: *")
+
+    def test_post(self):
+        response = self.client.post("/robots.txt")
+
+        self.assertEqual(response.status_code, HTTPStatus.METHOD_NOT_ALLOWED)
+
+class SignupFormTest(TestCase):
+    def test_form_validation(self):
+        form = SignupForm({
+            'email': 'test@example.com',
+            'username': 'admin',
+            'password1': 'vittoria@user',
+            'password2': 'vittoria@user',
+        })
+        
+        self.assertTrue(form.is_valid())
+      
+        
+    def test_form_invalid_missing_email(self):
+        form = SignupForm({
+            'username': 'testuser',
+            'password1': 'password',
+            'password2': 'password',
+        })
+        self.assertFalse(form.is_valid())
+        self.assertEqual(form.errors['email'], ['This field is required.'])
+
+class EditProductFormTest(TestCase):
+    def setUp(self):
+        self.product = Product.objects.create(
+            name='test product',
+            description='test description',
+            price=10.99,
+        )
+
+    def test_form_validation(self):
+        form = EditProductForm(data={'name':'test product', 'description':'test description', 'price':10.99}, instance=self.product)
+        self.assertTrue(form.is_valid())
+    
+    def test_form_invalid_missing_name(self):
+        form = EditProductForm({
+            'description': 'test description',
+            'price': 10.99,
+        }, instance=self.product)
+        self.assertFalse(form.is_valid())
+        self.assertEqual(form.errors['name'], ['This field is required.'])
+
+class NewsletterFormTest(TestCase):
+    def test_form_validation(self):
+        form = NewsletterForm({
+            'emails': 'test@example.com',
+        })
+        self.assertTrue(form.is_valid())
+
+```
+
+## Compatibility Testing
+### Using different browsers
+
+The project has been  tested on the following web browsers, checking that all aspects worked as planned:
+
+    Google Chrome
+    Mozilla Firefox
+    Apple Safari
+
+### Using different devices
+
+I tested this project on these devices:
+
+    Acer Desktop on KDE Linux
+    Apple iPhone 6
+    Android 12 Poco Phone
+    Android 11 Tablet 
+    Lenove Laptop using Windows 10
 
 
 ## Attribution
