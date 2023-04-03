@@ -1,20 +1,23 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-    <script src="https://js.stripe.com/v3/"></script>
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Vittoria - Ecommerce</title>
-    <meta name="description" property="og:description" content="Clothing and House Furniture for the discerning individual">
+    <meta name="description" property="og:description"
+        content="Clothing and House Furniture for the discerning individual">
     <meta name="keywords" content="men, women, clothing, fashion, household, furniture, value, quality">
     <link rel="stylesheet" href="{% static 'css/main.css'%}">
     <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/images-static/Logo.png' %}">
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+<script src="https://js.stripe.com/v3/"></script>
 
 <body>
     <!-- Messenger Chat plugin Code -->
@@ -24,7 +27,7 @@
     <div id="fb-customer-chat" class="fb-customerchat">
     </div>
 
-  
+
     <!-- Header Area Start -->
     <header class="header">
         <div class="header-top">
@@ -69,7 +72,7 @@
                                     </div>
                                 </div>
                             </div>
-                         
+
                         </div>
                     </div>
                 </div>
@@ -84,7 +87,7 @@
                         </div>
                         <ul class="main-menu d-flex align-items-center">
                             <li><a class="active" href="/">Home</a></li>
-                            
+
                             <li><a href="{% url 'products:shop'%}">Shop</a></li>
                             <li>
                                 <a href="javascript:void(0)">Category
@@ -100,34 +103,34 @@
                                 <ul class="sub-menu">
                                     {% for i in category_dropdown %}
                                     <li><a href="/shop/?category={{i.name}}">{{i.name}}</a></li>
-                                   
+
                                     {% endfor %}
                                 </ul>
                                 {% if user.is_superuser %}
-                                    <li><a href="{% url 'home:add-product'%}">Add Product</a></li>
-                                {% endif %}
-                            </li>    
-                           
+                            <li><a href="{% url 'home:add-product'%}">Add Product</a></li>
+                            {% endif %}
+                            </li>
+
                         </ul>
                         <div class="search-bar">
-                            <form method="get" action = "{% url 'products:shop' %}">
-                            <input type="text" name="query" placeholder="Search for product..." required>
-                            <button type="submit">
-                            <div class="icon" style="right:5px !important;top:30% !important">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20.414" height="20.414"
-                                    viewBox="0 0 20.414 20.414">
-                                    <g id="Search_Icon" data-name="Search Icon" transform="translate(1 1)">
-                                        <ellipse id="Ellipse_1" data-name="Ellipse 1" cx="8.158" cy="8" rx="8.158"
-                                            ry="8" fill="none" stroke="#1a2224" stroke-linecap="round"
-                                            stroke-linejoin="round" stroke-width="2" />
-                                        <line id="Line_4" data-name="Line 4" x1="3.569" y1="3.5"
-                                            transform="translate(14.431 14.5)" fill="none" stroke="#1a2224"
-                                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-                                    </g>
-                                </svg>
-                            </div>
-                        </button>
-                    </form>
+                            <form method="get" action="{% url 'products:shop' %}">
+                                <input type="text" name="query" placeholder="Search for product..." required>
+                                <button type="submit">
+                                    <div class="icon" style="right:5px !important;top:30% !important">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20.414" height="20.414"
+                                            viewBox="0 0 20.414 20.414">
+                                            <g id="Search_Icon" data-name="Search Icon" transform="translate(1 1)">
+                                                <ellipse id="Ellipse_1" data-name="Ellipse 1" cx="8.158" cy="8"
+                                                    rx="8.158" ry="8" fill="none" stroke="#1a2224"
+                                                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                                                <line id="Line_4" data-name="Line 4" x1="3.569" y1="3.5"
+                                                    transform="translate(14.431 14.5)" fill="none" stroke="#1a2224"
+                                                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                                            </g>
+                                        </svg>
+                                    </div>
+                                </button>
+                            </form>
                         </div>
                         <div class="menu-icon ml-auto">
                             <ul>
@@ -146,8 +149,8 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{% url 'cart:cart' %}"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
-                                            viewBox="0 0 22 22">
+                                    <a href="{% url 'cart:cart' %}"><svg xmlns="http://www.w3.org/2000/svg" width="22"
+                                            height="22" viewBox="0 0 22 22">
                                             <g id="Icon" transform="translate(-1524 -89)">
                                                 <ellipse id="Ellipse_2" data-name="Ellipse 2" cx="0.909" cy="0.952"
                                                     rx="0.909" ry="0.952" transform="translate(1531.364 108.095)"
@@ -169,14 +172,14 @@
                                 {% if user.is_authenticated %}
                                 <li>
                                     <a style="padding: 5px;" class="btn bg-primary" href="{% url 'home:logout' %}">
-                                        
+
                                         Logout
                                     </a>
                                 </li>
                                 {% else %}
                                 <li>
                                     <a style="padding: 5px;" class="btn bg-primary" href="{% url 'home:login' %}">
-                                        
+
                                         Login
                                     </a>
                                 </li>
@@ -209,7 +212,7 @@
                             </div>
                         </div>
                         <li><a href="/home">Home</a></li>
-                        
+
                         <li><a href="/shop">Shop</a></li>
                         <li>
                             <a href="javascript:void(0)">Category
@@ -224,11 +227,11 @@
                             </a>
                             <ul class="sub-menu">
                                 {% if user.is_superuser %}
-                                    <li><a href="{% url 'home:add-product'%}">Add Product</a></li>
+                                <li><a href="{% url 'home:add-product'%}">Add Product</a></li>
                                 {% endif %}
 
                                 {% for i in category_dropdown %}
-                                    <li><a href="/shop/?category={{i.name}}">{{i.name}}</a></li>                                  
+                                <li><a href="/shop/?category={{i.name}}">{{i.name}}</a></li>
                                 {% endfor %}
                             </ul>
                         </li>
@@ -315,9 +318,9 @@
     </header>
     {% include 'home/messages.html' %}
     <!-- Header Area End -->
-{% block content %}
+    {% block content %}
 
-{% endblock %}
+    {% endblock %}
 
     <!-- Footer -->
     <footer>
@@ -351,8 +354,8 @@
                     <div class="main-footer-info">
                         <img src="{% static 'images/images-static/Logo.png' %}" alt="Logo" class="img-fluid">
                         <p>
-                            Committed to delivering you the finest quality and craftsmanship, 
-                            all at competitive pricing and prompt delivery. We are available to 
+                            Committed to delivering you the finest quality and craftsmanship,
+                            all at competitive pricing and prompt delivery. We are available to
                             serve you at any time using the Chat link on this site.
                         </p>
                     </div>
@@ -374,7 +377,8 @@
                             <p>&copy; 2023. Design and Developed by <a href="#">Tom</a></p>
                         </div>
                         <div class="copyright-links order-1 order-lg-2">
-                            <a href="https://www.facebook.com/tfvittoria/" class="ml-0"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.facebook.com/tfvittoria/" class="ml-0"><i
+                                    class="fab fa-facebook-f"></i></a>
                         </div>
                     </div>
                 </div>
@@ -388,8 +392,8 @@
     <script src="{% static 'js/slick.min.js' %}"></script>
     <script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
- 
-        <script src="https://js.stripe.com/v3/"></script>
+
+    <script src="https://js.stripe.com/v3/"></script>
     <script>
         function openNav() {
 
@@ -402,27 +406,27 @@
             $('#overlayy').removeClass("active");
         }
     </script>
-      <script>
+    <script>
         var chatbox = document.getElementById('fb-customer-chat');
         chatbox.setAttribute("page_id", "102097306119790");
         chatbox.setAttribute("attribution", "biz_inbox");
-      </script>
-  
-      <!-- Your SDK code -->
-      <script>
-        window.fbAsyncInit = function() {
-          FB.init({
-            xfbml            : true,
-            version          : 'v15.0'
-          });
+    </script>
+
+    <!-- Your SDK code -->
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                xfbml: true,
+                version: 'v15.0'
+            });
         };
-  
-        (function(d, s, id) {
-          var js, fjs = d.getElementsByTagName(s)[0];
-          if (d.getElementById(id)) return;
-          js = d.createElement(s); js.id = id;
-          js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
-          fjs.parentNode.insertBefore(js, fjs);
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+            fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
-      </script>
+    </script>
 </body>
