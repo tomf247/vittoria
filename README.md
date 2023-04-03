@@ -36,7 +36,19 @@ We are dedicated to continuously improving our website and offerings, and to sta
 - Ongoing improvement: We continuously improve and refine our offering to reflect market trands and directions.
 
 
-# Planning
+## Planning & Design Process
+
+Several key factors were considered to ensure that the final product met the needs of the target audience. These factors included:
+
+- User experience: The design process prioritized creating an intuitive and easy-to-use platform that would provide a seamless shopping experience for customers.
+
+- Accessibility: The website had to be accessible to all users, regardless of their abilities or devices. This involved considering factors such as font size, color contrast, and keyboard navigation.
+
+- Brand identity: The design process emphasized creating a visual identity that would communicate the brand's values and personality, and differentiate the website from competitors.
+
+- Performance: Performance optimization was at the forefront throughout the design process, ensuring that the website was fast and responsive, with quick load times and minimal lag.
+
+- Security: Security measures were considered, such as encryption and secure login systems, to protect user data and ensure customer trust.
 
 ## Initial Wireframe
 
@@ -66,7 +78,6 @@ I used [app.diagrams.net](https://app.diagrams.net) for the initial mockup. The 
 - Responsive layout.
 
 ## Usage
-#
 
 ![alt text](docs/showcase.png "Vittoria Showcase")
 
@@ -77,7 +88,6 @@ Upon landing on the site main page, the shopper is presented with a carousel cal
 Similarly, a secondary feature shows up to nine items that are popular with shoppers, agin allowing them to select or add an item.
 
 ## Navigation
-#
 
 ![alt text](docs/topnav.png "Vittoria Nav Bar")
 
@@ -98,17 +108,16 @@ The following features sit in the top navigation area:
 - Log in/out.
 
 ## Shopping Cart
-#
+
 ![alt text](docs/cart.png "Vittoria Shopping Cart")
-#
+
 The shopping cart displays a list of items that have been added for purchase. A shopper can remove items, change the quantity and proceed to checkout if desired.
 
 ## Checkout
-#
-![alt text](docs/checkout.png "Vittoria Checkout")
-#
-On this page, the shopper confirms the amount payable, the shipping address, and the credit card information. This is passed securely to the Stripe Payment Processor, without any financial information saved in the store.
 
+![alt text](docs/checkout.png "Vittoria Checkout")
+
+On this page, the shopper confirms the amount payable, the shipping address, and the credit card information. This is passed securely to the Stripe Payment Processor, without any financial information saved in the store.
 
 The above represents the basic workflow of the site. There are other features such as adding items to the favorites list, which is achieved by clicking on the heart symbol on the top right of each image, as well as a quick add to shopping cart, denoted by the cart symbol on each image.
 
@@ -116,14 +125,13 @@ A full login log out system, with password reset is provided.
 
 A chat page, with a link to the store page is provided.
 
-
 ## Catalog Maintenance
-#
+
 If an Administrator logs in, a new category called 'Add Product' appears in the top navigation bar.
 Additionally, an edit symbol is displayed over each existing item image, to allow the Admin, to edit or delete an item.
 
 ## Business Model
-#
+
 The objective of the store is to generate sales in the young adult market, by featuring products that are appealing to them, moderately priced, and delivering them in a timely fashion.
 
 Social media such as Facebook, Twitter and Instgram are used to spread brand awareness.
@@ -142,7 +150,6 @@ Frequent meetings with suppliers and logistics firms to avail of new markets and
 [The Facebook page is here ](https://facebook.com/tf-vittoria)
 
 ## Platform
-#
 
 - AWS to store static files
 
@@ -154,9 +161,9 @@ Frequent meetings with suppliers and logistics firms to avail of new markets and
 
 - Github, Gitpod, VS Code, Django
 
-#
+
 ## Deployment
-#
+
 The project was deployed to Heroku, and in order to remain within the Free Tier,  the Postgres Database was hosted at Elephant SQL. Additionally, static and media files were hosted on Amazon Cloud. This combination allows for a free website, provided usage rates are not exceeded.
 
 1. Create an [AWS S3 Bucket](https://aws.amazon.com/s3/) (For media)
@@ -206,9 +213,10 @@ heroku git:remote -a <your app name here>
 12. Complete the deployment by pushing the projekt to Heroku:
 ```
 git push heroku main
-``` 
-#
+```
+
 ## Testing
+
 ### General
 
 - Overview:
@@ -450,10 +458,9 @@ By setting these specific goals, Vittoria ecommerce can better measure the succe
 - Monitoring of customer feedback, including reviews and comments on social media and other platforms, to identify areas for improvement and adjust the marketing plan accordingly.
 #
 
-## Attribution
-#
+## Assistance & Attribution
 
-The first source is Code Institute, whose ecommerce tutorial was indispensible.
+The first source of help and assistance is Code Institute, whose ecommerce tutorial was indispensible.
 In addition, I had the benefits of a mentor Ashit, and a fellow student Atit, who provided useful guidelines and hints.
 Google, Slack, Stack Overflow were geat sources of specific code snippets and examples which aided me.
 I would like to thank all who assisted me in this project.
