@@ -13,8 +13,8 @@ For the store owner, a means is provided to edit and maintain the store catalog.
 
 ## Initial Wireframe
 
-![Wireframe](/docs/vittoria-wireframe.png "Wireframe")
-I used [app.diagrams.net](https://app.diagrams.net) for the initial mockup. The sketch can be re-used or modified [here](/cocs/vittoria_app.diagrams.drawio)
+![Wireframe](docs/vittoria-wireframe.png "Wireframe")
+I used [app.diagrams.net](https://app.diagrams.net) for the initial mockup. The sketch can be re-used or modified [here](docs/vittoria_app.diagrams.drawio)
 
 
 ## Features
