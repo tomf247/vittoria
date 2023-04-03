@@ -190,7 +190,7 @@ git push heroku main
 
 - Multiple purchases made during testing, to check input validation, arithmetic calculations, and credit card processing. No errors were found.
 
-### Specific
+### Logical Testing
 
 - The Home folder contains a tests.py containing the following test cases. They complete without error.
 
@@ -258,6 +258,9 @@ class NewsletterFormTest(TestCase):
         self.assertTrue(form.is_valid())
 
 ```
+### CSS Testing
+
+- Running the site through [The W3C Validation Service](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Ftf-vittoria.herokuapp.com%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en) produces only one error message related to Font Awsome, and a bug report exists on Github at https://github.com/FortAwesome/Font-Awesome/issues/19423
 
 ## Compatibility Testing
 ### Using different browsers
