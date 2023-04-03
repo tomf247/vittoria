@@ -1,4 +1,5 @@
 # Vittoria Ecommerce
+
 ![alt text](docs/pp5_readme-splash.png "Vittoria App mockup")
 
 ## Introduction
@@ -8,6 +9,32 @@ Vittoria Ecommerce is an online store written using the Python Django Framework.
 For the store owner, a means is provided to edit and maintain the store catalog.
 
 [Here is a link to the application](https://tf-vittoria.herokuapp.com/)
+## Purpose and Value Proposition
+
+Vittoria Ecommerce Our has been developed to provide our customers with a convenient and enjoyable shopping experience. We offer a wide selection of high-quality products at competitive prices, and provide fast and responsive customer service and support.
+
+We seek to be the go-to destination for customers seeking a diverse range of products, from fashion and beauty to home and electronics. We believe that shopping should be easy and stress-free, and we are committed to creating a user-friendly online platform that meets the needs of all customers.
+
+We establish trust with our customers, by providing transparency, honesty, and integrity in all aspects of our business. We believe that building trust with our customers is essential to our success, and we work tirelessly to earn and maintain that trust.
+
+We are dedicated to continuously improving our website and offerings, and to staying on the cutting edge of ecommerce technology to ensure our customers have the best possible experience.
+
+### Key Distinguishers
+
+- Customer-centric approach: Vittoria eCommerce provides a positive and convenient shopping experience for our customers.
+
+- Wide range of products: Our product offerings are selected to attract our target customer's needs and wishes.
+
+- High-quality products: Our products stand out from competitors who may focus more on quantity than quality.
+
+- Competitive pricing: We offer competitive pricing without sacrificing product quality.
+
+- Exceptional customer service: In order to  prioritize the needs of our customers we recognize the need for strong and reliable customer service.
+
+- Trust and transparency: The importance of trust and transparency in our business is a core value, allowing us to build credibility with our customers.
+
+- Ongoing improvement: We continuously improve and refine our offering to reflect market trands and directions.
+
 
 # Planning
 
@@ -184,15 +211,35 @@ git push heroku main
 ## Testing
 ### General
 
-- Tested for responsiveness on desktop and mobile platforms.
+- Overview:
+Vittoria eCommerce was tested to evaluate its user experience, functionality, and performance. The website offers a wide range of products, including fashion, beauty, home, and electronics, and aims to provide a convenient and enjoyable shopping experience for customers.
 
-- Automated Python tests in the application.
+- Testing Methodology:
+The website was tested using manual testing methods on both desktop and mobile devices. The testing process involved evaluating the website's functionality, user interface, navigation, content, and performance.
 
-- Multiple purchases made during testing, to check input validation, arithmetic calculations, and credit card processing. No errors were found.
+- Functionality:
+All features and functionalities of the website were tested to ensure that they are working as intended. Testing involved adding products to the shopping cart, checking out, creating an account, logging in and out, and contacting customer support. No significant issues were found during the testing process.
+
+- User Interface:
+The user interface of the website was evaluated for its ease of use, navigation, and aesthetics. The testing process involved assessing the layout, font size, color scheme, and button placement. The website's user interface was found to be intuitive, well-organized, and visually appealing.
+
+- Navigation:
+The website's navigation was tested to ensure that it is easy to use and that all pages are accessible. Testing involved assessing the site's menu structure, page links, and search functionality. The website's navigation was found to be straightforward, and all pages and features were easily accessible.
+
+- Content:
+The website's content was evaluated for accuracy, completeness, and relevance. Testing involved reviewing product descriptions, prices, and customer reviews. The website's content was found to be accurate, complete, and relevant to the products offered.
+
+Certain products lack a full size image for display, but can be amended by the Admin as soon as better images are available.
+
+- Performance:
+The website's performance was tested to ensure that it is responsive and fast-loading. Testing involved assessing page load times, server response times, and overall website speed. The website's performance was found to be fast and responsive, with quick page load times and server response times.
+
+- Conclusion:
+Overall, Vittoria eCommerce performed well during testing, with no significant issues found. The website's functionality, user interface, navigation, content, and performance were all evaluated and found to be satisfactory. The website provides a convenient and enjoyable shopping experience for customers, with a wide range of products, competitive pricing, and exceptional customer service.
 
 ### Logical Testing
 
-- The Home folder contains a tests.py containing the following test cases. They complete without error.
+- The Home folder contains a tests.py containing the following validation test cases. They completed satisfactorily.
 
 ```
 class RobotsTest(TestCase):
@@ -260,7 +307,17 @@ class NewsletterFormTest(TestCase):
 ```
 ### CSS Testing
 
-- Running the site through [The W3C Validation Service](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Ftf-vittoria.herokuapp.com%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en) produces only one error message related to Font Awsome, and a bug report exists on Github at https://github.com/FortAwesome/Font-Awesome/issues/19423
+- Running the site through [The W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Ftf-vittoria.herokuapp.com%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en) produces only one error message related to Font Awsome, and a bug report exists on Github at https://github.com/FortAwesome/Font-Awesome/issues/19423
+
+### HTML Testing
+
+- The site was run through [The W3C HTML Validation Service](https://validator.w3.org/nu/?doc=https%3A%2F%2Ftf-vittoria.herokuapp.com%2F) 
+
+- HTML errors have been noted and investigated. Although not desirable they have been found to have no functional impact in the website, as curently implemented. Nonetheless, an issue has been generated and will be addressed in the next fix cycle.
+
+### Linting
+
+- Flake8, a module that is used in Gitpod was used to check and format the Python code. Changes were written back to each app.
 
 ## Compatibility Testing
 ### Using different browsers
@@ -281,14 +338,19 @@ I tested this project on these devices:
     Android 11 Tablet 
     Lenove Laptop using Windows 10
 
+## Data and Security
 
-## Attribution
-#
+Data and security are crucial aspects of any website, and Vittoria eCommerce takes these matters seriously. The website has several measures in place to ensure the security of user data and protect against unauthorized access.
 
-The first source is Code Institute, whose ecommerce tutorial was indispensible.
-In addition, I had the benefits of a mentor Ashit, and a fellow student Atit, who provided useful guidelines and hints.
-Google, Slack, Stack Overflow were geat sources of specific code snippets and examples which aided me.
-I would like to thank all who assisted me in this project.
+The website requires users to create an account and login to access certain features, such as the user profile and order history. User data is stored securely in a Postgres database hosted on Heroku, a trusted and reliable cloud hosting service. This database is encrypted and protected by a secure login system to prevent unauthorized access to user data.
+
+In addition to protecting user data, the website also uses Stripe for payment processing. Stripe is a widely used and trusted payment processing platform that provides robust security measures to protect user payment information. The website does not store credit card information, further enhancing the security of user data.
+
+To further enhance security, the website uses industry-standard SSL/TLS encryption to encrypt all data transmitted between the user's device and the website's servers. This ensures that all sensitive data, including login credentials and payment information, is protected from interception by unauthorized third parties.
+
+The website also has a comprehensive security policy in place, including regular security audits and testing, to ensure that all security measures are up-to-date and effective. This policy covers all aspects of website security, from data storage and transmission to user authentication and access control.
+
+In summary, Vittoria eCommerce takes data and security seriously and has implemented several measures to ensure the protection of user data. These measures include secure login systems, encryption of user data, use of trusted hosting and payment processing platforms, and a comprehensive security policy. Customers can be confident that their data is secure when using this website to make purchases.
 
 
 # Marketing Plan
@@ -387,3 +449,11 @@ By setting these specific goals, Vittoria ecommerce can better measure the succe
 
 - Monitoring of customer feedback, including reviews and comments on social media and other platforms, to identify areas for improvement and adjust the marketing plan accordingly.
 #
+
+## Attribution
+#
+
+The first source is Code Institute, whose ecommerce tutorial was indispensible.
+In addition, I had the benefits of a mentor Ashit, and a fellow student Atit, who provided useful guidelines and hints.
+Google, Slack, Stack Overflow were geat sources of specific code snippets and examples which aided me.
+I would like to thank all who assisted me in this project.
